@@ -1,7 +1,52 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+	"$schema": "https://www.schemastore.org/tsconfig",
+
+	"compilerOptions": {
+		/* Type Checking */
+		"allowUnusedLabels": false,
+		"exactOptionalPropertyTypes": true,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noUncheckedIndexedAccess": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"strict": true,
+
+		/* Modules */
+		"allowArbitraryExtensions": true,
+		"resolveJsonModule": true,
+		"rewriteRelativeImportExtensions": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"types": ["vite/client"],
+
+		"paths": {
+			"#/*": ["./src/*"],
+			"~/*": ["./src/*"]
+		},
+
+		/* Emit */
+		"noEmit": true,
+
+		/* JavaScript Support*/
+		"allowJs": true,
+		"checkJs": true,
+
+		/* Interop Constraints */
+		"erasableSyntaxOnly": true,
+		"verbatimModuleSyntax": true,
+
+		/* Language and Environment */
+		"moduleDetection": "force",
+		"jsx": "react-jsx",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+		"target": "esnext",
+
+		/* Output Formatting */
+		"noErrorTruncation": true,
+
+		/* Completeness */
+		"skipLibCheck": true
+	}
 }

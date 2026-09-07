@@ -1,0 +1,26 @@
+{
+	/* Code linting and formatting */
+	"editor.defaultFormatter": "oxc.oxc-vscode",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.oxc": "always",
+		"source.fixAllDangerous.oxc": "explicit"
+	},
+
+	/* Tanstack Start */
+	"files.watcherExclude": {
+		"**/routeTree.gen.ts": true
+	},
+	"search.exclude": {
+		"**/routeTree.gen.ts": true
+	},
+	"files.readonlyInclude": {
+		"**/routeTree.gen.ts": true
+	},
+
+	"files.associations": {
+		"*.css": "css"
+	},
+
+	/* Project specific words */
+	"cSpell.words": ["aniva"]
+}
