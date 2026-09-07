@@ -4,6 +4,7 @@ import {
 	type TanStackDevtoolsReactPlugin
 } from "@tanstack/react-devtools";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 
 const config: NonNullable<TanStackDevtoolsReactInit["config"]> = {
 	position: "bottom-right",
@@ -14,6 +15,10 @@ const plugins: TanStackDevtoolsReactPlugin[] = [
 	{
 		name: "Tanstack Router",
 		render: <TanStackRouterDevtoolsPanel />
+	},
+	{
+		name: "Tanstack Query",
+		render: <ReactQueryDevtoolsPanel />
 	}
 ];
 

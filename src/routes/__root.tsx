@@ -1,8 +1,18 @@
-import { TanstackDevtoolsProvider } from "~/integrations/tanstack/devtools/provider";
 import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
+
+import { TanstackDevtoolsProvider } from "~/integrations/tanstack/devtools/provider";
+
 import globalStyles from "~/styles/styles.css?url";
 
-interface AnivaRouterContext {}
+import type { QueryClient } from "@tanstack/react-query";
+
+import type { TRPCRouter } from "~/integrations/trpc/router";
+import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
+
+interface AnivaRouterContext {
+	queryClient: QueryClient;
+	trpc: TRPCOptionsProxy<TRPCRouter>;
+}
 
 export const Route = createRootRouteWithContext<AnivaRouterContext>()({
 	head: () => ({

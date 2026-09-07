@@ -13,7 +13,7 @@ export default defineConfig({
 	rules: {
 		/* React rules updates */
 		"react/rules-of-hooks": "error",
-		"react/only-export-components": ["warn", { allowConstantExport: true }],
+		"react/only-export-components": "off",
 		"react/react-in-jsx-scope": "off",
 
 		/* Typescript rules updates */
