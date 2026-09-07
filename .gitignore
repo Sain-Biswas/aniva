@@ -1,23 +1,62 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# dependencies
 node_modules
+.pnp
+.pnp.js
+
+# local env files
+.env
+.env.*
+!.env.example
+
+# testing
+coverage
+testing.txt
+
+# logs
+logs
+*.log*
+
+# databases
+generated
+
+# build outputs
 dist
 dist-ssr
+.output
 *.local
 
-# Editor directories and files
+# vercel
+.vercel
+
+# cloudflare
+.wrangler
+
+# tanstack
+.nitro
+.tanstack
+.vinxi
+__unconfig*
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# visual studio code
 .vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
 !.vscode/extensions.json
 !.vscode/settings.json
-.idea
-.DS_Store
+
+# jetbrains
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/shelf
+
+# other editors
 *.suo
 *.ntvs*
 *.njsproj
