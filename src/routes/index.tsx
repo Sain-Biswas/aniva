@@ -1,13 +1,15 @@
 // oxlint-disable react-hooks/rules-of-hooks
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
+	loader: async ({ context }) => {
+		await context.queryClient.query(context.trpc.todos.list.queryOptions());
+	},
+	pendingComponent: () => <main>Loading...</main>,
 	component: () => {
 		const { trpc } = Route.useRouteContext();
-		const { data, isPending } = useQuery(trpc.todos.list.queryOptions());
-
-		if (isPending) return <main>Loading...</main>;
+		const { data } = useSuspenseQuery(trpc.todos.list.queryOptions());
 
 		return (
 			<div className="p-8">

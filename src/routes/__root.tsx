@@ -6,12 +6,12 @@ import globalStyles from "~/styles/styles.css?url";
 
 import type { QueryClient } from "@tanstack/react-query";
 
-import type { TRPCRouter } from "~/integrations/trpc/router";
 import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
+import type { AppRouter } from "~/server/api/root";
 
 interface AnivaRouterContext {
 	queryClient: QueryClient;
-	trpc: TRPCOptionsProxy<TRPCRouter>;
+	trpc: TRPCOptionsProxy<AppRouter>;
 }
 
 export const Route = createRootRouteWithContext<AnivaRouterContext>()({

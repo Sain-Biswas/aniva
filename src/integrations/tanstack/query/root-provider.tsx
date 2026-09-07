@@ -4,8 +4,8 @@ import superjson from "superjson";
 import { createTRPCClient, httpBatchStreamLink } from "@trpc/client";
 import { createTRPCOptionsProxy } from "@trpc/tanstack-react-query";
 
-import type { TRPCRouter } from "#/integrations/trpc/router";
 import { TRPCProvider } from "#/integrations/trpc/react";
+import type { AppRouter } from "#/server/api/root";
 
 function getUrl() {
 	const base = (() => {
@@ -16,7 +16,7 @@ function getUrl() {
 	return `${base}/api/trpc`;
 }
 
-export const trpcClient = createTRPCClient<TRPCRouter>({
+export const trpcClient = createTRPCClient<AppRouter>({
 	links: [
 		httpBatchStreamLink({
 			transformer: superjson,
@@ -37,6 +37,7 @@ export function getContext() {
 		client: trpcClient,
 		queryClient: queryClient
 	});
+
 	const context = {
 		queryClient,
 		trpc: serverHelpers
