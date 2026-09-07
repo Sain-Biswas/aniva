@@ -8,5 +8,7 @@ export default defineConfig({
 
 	/* HTML-JSX-TSX specific options */
 	htmlWhitespaceSensitivity: "strict",
-	singleAttributePerLine: true
+	singleAttributePerLine: true,
+
+	ignorePatterns: ["**/routeTree.gen.ts"]
 });
