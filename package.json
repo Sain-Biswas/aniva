@@ -18,6 +18,7 @@
 		"check": "tsc && oxlint --fix && oxfmt"
 	},
 	"dependencies": {
+		"@libsql/client": "^0.18.0",
 		"@t3-oss/env-core": "^0.13.11",
 		"@tanstack/react-query": "^5.102.8",
 		"@tanstack/react-router": "^1.170.32",
@@ -26,6 +27,8 @@
 		"@trpc/client": "^11.18.0",
 		"@trpc/server": "^11.18.0",
 		"@trpc/tanstack-react-query": "^11.18.0",
+		"dotenv": "^17.4.2",
+		"drizzle-orm": "1.0.0-rc.4",
 		"react": "19.2.8",
 		"react-dom": "19.2.8",
 		"superjson": "^2.2.6",
@@ -42,10 +45,12 @@
 		"@types/react-dom": "19.2.7",
 		"@vitejs/plugin-react": "6.1.1",
 		"babel-plugin-react-compiler": "^1.0.0",
+		"drizzle-kit": "1.0.0-rc.4",
 		"nitro": "3.0.260903-beta",
 		"oxfmt": "^0.66.0",
 		"oxlint": "^1.81.0",
 		"oxlint-tsgolint": "^7.0.2001",
+		"tsx": "^4.23.13",
 		"typescript": "7.0.2",
 		"vite": "8.2.2"
 	}

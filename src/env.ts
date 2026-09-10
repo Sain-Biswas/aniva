@@ -3,7 +3,8 @@ import { z } from "zod";
 
 export const env = createEnv({
 	server: {
-		DATABASE_URL: z.string()
+		DATABASE_URL: z.string(),
+		DATABASE_AUTH_TOKEN: z.string()
 	},
 
 	clientPrefix: "VITE_",
