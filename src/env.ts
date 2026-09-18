@@ -13,6 +13,6 @@ export const env = createEnv({
 		VITE_APP_TITLE: z.string().min(1).optional()
 	},
 
-	runtimeEnv: import.meta.env,
+	runtimeEnv: { ...import.meta.env, ...process.env },
 	emptyStringAsUndefined: true
 });
