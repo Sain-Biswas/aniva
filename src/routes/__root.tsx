@@ -1,4 +1,4 @@
-import { createRootRouteWithContext, HeadContent, Scripts } from "@tanstack/react-router";
+import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 
 import { TanstackDevtoolsProvider } from "~/integrations/tanstack/devtools/provider";
 
@@ -8,6 +8,7 @@ import type { QueryClient } from "@tanstack/react-query";
 
 import type { TRPCOptionsProxy } from "@trpc/tanstack-react-query";
 import type { AppRouter } from "~/server/api/root";
+import { ThemeProvider } from "#/integrations/dark-mode/provider";
 
 interface AnivaRouterContext {
 	queryClient: QueryClient;
@@ -37,14 +38,19 @@ export const Route = createRootRouteWithContext<AnivaRouterContext>()({
 		]
 	}),
 
-	shellComponent: ({ children }: { children: React.ReactNode }) => {
+	shellComponent: () => {
 		return (
 			<html lang="en">
 				<head>
 					<HeadContent />
 				</head>
 				<body>
-					{children}
+					<ThemeProvider
+						defaultTheme="system"
+						storageKey="aniva-ui-theme"
+					>
+						<Outlet />
+					</ThemeProvider>
 					<TanstackDevtoolsProvider />
 					<Scripts />
 				</body>

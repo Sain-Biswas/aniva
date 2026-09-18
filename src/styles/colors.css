@@ -1,0 +1,125 @@
+:root {
+	--c-primary: rgb(48 98 140);
+	--c-surface-tint: rgb(48 98 140);
+	--c-on-primary: rgb(255 255 255);
+	--c-primary-container: rgb(206 229 255);
+	--c-on-primary-container: rgb(15 74 115);
+
+	--c-primary-fixed: rgb(206 229 255);
+	--c-on-primary-fixed: rgb(0 29 51);
+	--c-primary-fixed-dim: rgb(156 203 251);
+	--c-on-primary-fixed-variant: rgb(15 74 115);
+
+	--c-secondary: rgb(82 96 111);
+	--c-on-secondary: rgb(255 255 255);
+	--c-secondary-container: rgb(213 228 247);
+	--c-on-secondary-container: rgb(58 72 87);
+
+	--c-secondary-fixed: rgb(213 228 247);
+	--c-on-secondary-fixed: rgb(14 29 42);
+	--c-secondary-fixed-dim: rgb(185 200 218);
+	--c-on-secondary-fixed-variant: rgb(58 72 87);
+
+	--c-tertiary: rgb(104 88 122);
+	--c-on-tertiary: rgb(255 255 255);
+	--c-tertiary-container: rgb(239 219 255);
+	--c-on-tertiary-container: rgb(80 64 97);
+
+	--c-tertiary-fixed: rgb(239 219 255);
+	--c-on-tertiary-fixed: rgb(35 21 51);
+	--c-tertiary-fixed-dim: rgb(211 191 230);
+	--c-on-tertiary-fixed-variant: rgb(80 64 97);
+
+	--c-error: rgb(186 26 26);
+	--c-on-error: rgb(255 255 255);
+	--c-error-container: rgb(255 218 214);
+	--c-on-error-container: rgb(147 0 10);
+
+	--c-surface: rgb(247 249 255);
+	--c-on-surface: rgb(24 28 32);
+	--c-surface-variant: rgb(222 227 235);
+	--c-on-surface-variant: rgb(66 71 78);
+
+	--c-outline: rgb(114 119 127);
+	--c-outline-variant: rgb(194 199 207);
+
+	--c-shadow: rgb(0 0 0);
+	--c-scrim: rgb(0 0 0);
+
+	--c-inverse-surface: rgb(45 49 53);
+	--c-inverse-on-surface: rgb(239 241 246);
+	--c-inverse-primary: rgb(156 203 251);
+
+	--c-surface-dim: rgb(216 218 224);
+	--c-surface-bright: rgb(247 249 255);
+
+	--c-surface-container-lowest: rgb(255 255 255);
+	--c-surface-container-low: rgb(241 243 249);
+	--c-surface-container: rgb(236 238 243);
+	--c-surface-container-high: rgb(230 232 238);
+	--c-surface-container-highest: rgb(224 226 232);
+
+	--c-warning: rgb(122 89 12);
+	--c-on-warning: rgb(255 255 255);
+	--c-warning-container: rgb(255 222 166);
+	--c-on-warning-container: rgb(93 66 0);
+
+	--c-success: rgb(64 104 54);
+	--c-on-success: rgb(255 255 255);
+	--c-success-container: rgb(192 239 176);
+	--c-on-success-container: rgb(40 80 32);
+}
+
+.dark {
+	--c-primary: rgb(156 203 251);
+	--c-surface-tint: rgb(156 203 251);
+	--c-on-primary: rgb(0 51 84);
+	--c-primary-container: rgb(15 74 115);
+	--c-on-primary-container: rgb(206 229 255);
+
+	--c-secondary: rgb(185 200 218);
+	--c-on-secondary: rgb(36 50 64);
+	--c-secondary-container: rgb(58 72 87);
+	--c-on-secondary-container: rgb(213 228 247);
+
+	--c-tertiary: rgb(211 191 230);
+	--c-on-tertiary: rgb(57 42 73);
+	--c-tertiary-container: rgb(80 64 97);
+	--c-on-tertiary-container: rgb(239 219 255);
+
+	--c-error: rgb(255 180 171);
+	--c-on-error: rgb(105 0 5);
+	--c-error-container: rgb(147 0 10);
+	--c-on-error-container: rgb(255 218 214);
+
+	--c-surface: rgb(16 20 24);
+	--c-on-surface: rgb(224 226 232);
+	--c-surface-variant: rgb(66 71 78);
+	--c-on-surface-variant: rgb(194 199 207);
+
+	--c-outline: rgb(140 145 153);
+	--c-outline-variant: rgb(66 71 78);
+
+	--c-inverse-surface: rgb(224 226 232);
+	--c-inverse-on-surface: rgb(45 49 53);
+	--c-inverse-primary: rgb(48 98 140);
+
+	--c-surface-dim: rgb(16 20 24);
+	--c-surface-bright: rgb(54 57 62);
+
+	--c-surface-container-lowest: rgb(11 15 18);
+	--c-surface-container-low: rgb(24 28 32);
+	--c-surface-container: rgb(28 32 36);
+	--c-surface-container-high: rgb(39 42 47);
+	--c-surface-container-highest: rgb(50 53 57);
+
+	--c-warning: rgb(237 192 108);
+	--c-on-warning: rgb(65 45 0);
+	--c-warning-container: rgb(93 66 0);
+	--c-on-warning-container: rgb(255 222 166);
+
+	--c-success: rgb(165 211 150);
+	--c-on-success: rgb(17 56 11);
+	--c-success-container: rgb(40 80 32);
+	--c-on-success-container: rgb(192 239 176);
+}
