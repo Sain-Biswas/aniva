@@ -4,9 +4,9 @@ export const Route = createFileRoute("/")({
 	pendingComponent: () => <main>Loading...</main>,
 	component: () => {
 		return (
-			<main className="p-8">
-				<h1 className="text-4xl font-bold">Welcome to TanStack Start</h1>
-				<p className="mt-4 text-lg">
+			<main>
+				<h1>Welcome to TanStack Start</h1>
+				<p>
 					Edit <code>src/routes/index.tsx</code> to get started.
 				</p>
 			</main>

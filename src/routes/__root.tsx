@@ -1,5 +1,6 @@
 import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 
+import globalStyles from "~/styles/style.scss?url";
 import { TanstackDevtoolsProvider } from "~/integrations/tanstack/devtools/provider";
 
 interface AnivaRouterContext {}
@@ -16,6 +17,13 @@ export const Route = createRootRouteWithContext<AnivaRouterContext>()({
 			},
 			{
 				title: "Aniva"
+			}
+		],
+
+		links: [
+			{
+				rel: "stylesheet",
+				href: globalStyles
 			}
 		]
 	}),
