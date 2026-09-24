@@ -1,0 +1,43 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# local env files
+.env*
+!.env.example
+
+# testing
+coverage
+testing.txt
+
+# logs
+logs
+*.log*
+*.tsbuildinfo*
+
+# databases
+generated
+*.sqlite*
+
+# build outputs
+dist
+dist-ssr
+*.local
+
+# vercel
+.vercel
+
+# Editor directories and files
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
