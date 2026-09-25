@@ -19,6 +19,7 @@ logs
 # databases
 generated
 *.sqlite*
+.tanstack
 
 # build outputs
 dist

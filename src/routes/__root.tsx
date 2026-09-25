@@ -2,6 +2,7 @@ import { createRootRouteWithContext, HeadContent, Outlet, Scripts } from "@tanst
 
 import globalStyles from "~/styles/style.scss?url";
 import { TanstackDevtoolsProvider } from "~/integrations/tanstack/devtools/provider";
+import { ThemeProvider } from "~/integrations/dark-mode/provider";
 
 interface AnivaRouterContext {}
 
@@ -30,13 +31,21 @@ export const Route = createRootRouteWithContext<AnivaRouterContext>()({
 
 	shellComponent: () => {
 		return (
-			<html lang="en">
+			<html
+				lang="en"
+				suppressHydrationWarning
+			>
 				<head>
 					<HeadContent />
 				</head>
 				<body>
-					<Outlet />
-					<TanstackDevtoolsProvider />
+					<ThemeProvider
+						defaultTheme="system"
+						storageKey="aniva-ui-theme"
+					>
+						<Outlet />
+						<TanstackDevtoolsProvider />
+					</ThemeProvider>
 					<Scripts />
 				</body>
 			</html>
