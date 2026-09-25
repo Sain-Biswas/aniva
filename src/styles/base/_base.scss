@@ -1,0 +1,10 @@
+@layer base {
+	body {
+		background: var(--c-surface);
+		color: var(--c-on-surface);
+		min-height: 100svh;
+	}
+	:where(:first-child) {
+		margin-block-start: 0;
+	}
+}
