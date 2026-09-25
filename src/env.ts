@@ -1,0 +1,19 @@
+import { createEnv } from "@t3-oss/env-core";
+import { z } from "zod";
+
+export const env = createEnv({
+	server: {
+		DATABASE_URL: z.string(),
+		DATABASE_AUTH_TOKEN: z.string(),
+		PORT: z.coerce.number().default(3000)
+	},
+
+	clientPrefix: "VITE_",
+
+	client: {
+		VITE_APP_TITLE: z.string().min(1).optional()
+	},
+
+	runtimeEnv: { ...import.meta.env, ...process.env },
+	emptyStringAsUndefined: true
+});
