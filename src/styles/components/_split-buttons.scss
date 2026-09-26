@@ -1,0 +1,137 @@
+@use "../util/functions" as f;
+@use "sass:math";
+
+@mixin size-customizations(
+	$height,
+	$p_lead_left,
+	$p_lead_right,
+	$lead_gap,
+	$inner_radius,
+	$svg_lead,
+	$p_trail_left,
+	$p_trail_right,
+	$svg_trail,
+	$p_trail,
+	$inner_radius_pressed,
+	$label_font_size
+) {
+	:where(button) {
+		height: $height;
+	}
+
+	.leading {
+		padding-inline: $p_lead_left $p_lead_right;
+		gap: $lead_gap;
+
+		font-size: f.rem($label_font_size);
+		font-weight: 500;
+
+		border-radius: math.div($height, 2) $inner_radius $inner_radius math.div($height, 2);
+		svg {
+			width: $svg_lead;
+			height: $svg_lead;
+		}
+
+		&[data-pressed] {
+			border-radius: math.div($height, 2) $inner_radius_pressed $inner_radius_pressed math.div($height, 2);
+		}
+	}
+	.trailing {
+		padding-inline: $p_trail_left $p_trail_right;
+		border-radius: $inner_radius math.div($height, 2) math.div($height, 2) $inner_radius;
+
+		&[data-pressed] {
+			border-radius: $inner_radius_pressed math.div($height, 2) math.div($height, 2) $inner_radius_pressed;
+		}
+
+		svg {
+			width: $svg_trail;
+			height: $svg_trail;
+		}
+		&[aria-expanded="true"] {
+			padding-inline: $p_trail;
+			border-radius: math.div($height, 2);
+		}
+	}
+}
+
+.split-button {
+	display: inline-flex;
+	gap: 2px;
+
+	.leading,
+	.trailing {
+		position: relative;
+		outline-offset: 2px;
+
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			border-radius: inherit;
+			pointer-events: none;
+		}
+	}
+
+	.leading {
+	}
+
+	.trailing {
+		svg {
+			transition: transform 0.3s ease-in-out;
+		}
+
+		&[aria-expanded="true"] {
+			svg {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+
+	&[data-color="filled"] {
+		:where(button) {
+			background: var(--c-primary);
+			color: var(--c-on-primary);
+
+			&[data-disabled] {
+				background: rgba(from var(--c-on-surface) r g b / 0.1);
+				color: rgba(from var(--c-on-surface) r g b / 0.38);
+			}
+
+			&[data-hovered]::before {
+				background: rgba(from var(--c-on-primary) r g b / 0.08);
+			}
+
+			&[data-focus-visible]::before {
+				outline: 1px solid var(--c-outline);
+				background: rgba(from var(--c-on-primary) r g b / 0.1);
+			}
+			&[data-pressed]::before {
+				background: rgba(from var(--c-on-primary) r g b / 0.1);
+			}
+		}
+	}
+
+	&[data-size="xs"] {
+		@include size-customizations(32px, 12px, 10px, 4px, 4px, 20px, 12px, 14px, 22px, 13px, 8px, 14);
+	}
+	&[data-size="sm"] {
+		@include size-customizations(40px, 16px, 12px, 8px, 4px, 20px, 12px, 14px, 22px, 13px, 8px, 14);
+	}
+	&[data-size="md"] {
+		@include size-customizations(56px, 24px, 24px, 8px, 4px, 24px, 13px, 17px, 26px, 15px, 12px, 16);
+	}
+	&[data-size="lg"] {
+		@include size-customizations(96px, 48px, 48px, 12px, 8px, 32px, 26px, 32px, 38px, 29px, 16px, 24);
+	}
+	&[data-size="xl"] {
+		@include size-customizations(136px, 64px, 64px, 16px, 12px, 40px, 37px, 49px, 50px, 43px, 16px, 32);
+	}
+}
