@@ -1,0 +1,15 @@
+@use "functions" as f;
+@use "sass:map";
+
+$breakpoints: (
+	"md": f.rem(600),
+	"ex": f.rem(840),
+	"lg": f.rem(1200),
+	"xl": f.rem(1600)
+);
+
+@mixin breakpoint($size) {
+	@media (width >= map.get($breakpoints, $size)) {
+		@content;
+	}
+}

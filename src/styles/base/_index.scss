@@ -1,5 +1,3 @@
-@use "reset";
-@use "base";
-@use "colors";
-
-@layer reset, base;
+@forward "reset";
+@forward "base";
+@forward "colors";

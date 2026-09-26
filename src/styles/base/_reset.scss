@@ -1,11 +1,58 @@
-@layer reset {
-	*,
-	:after,
-	:before {
-		box-sizing: border-box;
-	}
+@use "../util/mixins" as m;
 
-	body {
-		margin: 0;
+*,
+:after,
+:before {
+	box-sizing: border-box;
+}
+
+@include m.reduced_motion {
+	html {
+		interpolate-size: allow-keywords;
 	}
+}
+
+*:not(dialog) {
+	margin: 0;
+}
+
+body {
+	margin: 0;
+	-webkit-font-smoothing: antialiased;
+
+	-moz-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+}
+
+:where(img, picture, video, canvas, svg) {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+:where(input, button, textarea, select) {
+	font-family: inherit;
+	cursor: pointer;
+	border: none;
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+:where(p, h1, h2, h3, h4, h5, h6) {
+	overflow-wrap: break-word;
+}
+
+:where(p) {
+	text-wrap: pretty;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+	text-wrap: balance;
+}
+
+:where(ul, ol)[role="list"] {
+	list-style: none;
 }
