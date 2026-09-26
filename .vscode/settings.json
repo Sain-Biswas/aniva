@@ -17,5 +17,19 @@
 		"**/routeTree.gen.ts": true
 	},
 
-	"cSpell.words": ["aniva"]
+	"cSpell.words": [
+		"aniva",
+		"opsz",
+		"robotoflex",
+		"slnt",
+		"wdth",
+		"XOPQ",
+		"XTRA",
+		"YOPQ",
+		"YTAS",
+		"YTDE",
+		"YTFI",
+		"YTLC",
+		"YTUC"
+	]
 }

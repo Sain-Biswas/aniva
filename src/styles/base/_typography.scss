@@ -1,0 +1,25 @@
+@use "../util/fonts" as t;
+
+@font-face {
+	font-family: "Roboto Flex";
+	src: url("/robotoflex.ttf");
+
+	font-optical-sizing: auto;
+	font-weight: 100 900;
+	font-style: normal;
+	@include t.font_variations();
+}
+
+@font-face {
+	font-family: "Roboto Flex";
+	src: url("/robotoflex.ttf");
+
+	font-optical-sizing: auto;
+	font-weight: 100 900;
+	font-style: italic;
+	@include t.font_variations($slnt: -10);
+}
+
+body {
+	font-family: "Roboto Flex";
+}

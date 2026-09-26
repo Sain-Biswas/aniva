@@ -1,0 +1,28 @@
+@mixin font_variations(
+	$grad: 0,
+	$opsz: 14,
+	$slnt: 0,
+	$wdth: 100,
+	$xtra: 468,
+	$yopq: 79,
+	$xopq: 96,
+	$ytas: 750,
+	$ytde: -203,
+	$ytfi: 738,
+	$ytlc: 514,
+	$ytuc: 712
+) {
+	font-variation-settings:
+		"GRAD" $grad,
+		"opsz" $opsz,
+		"slnt" $slnt,
+		"wdth" $wdth,
+		"XTRA" $xtra,
+		"YOPQ" $yopq,
+		"XOPQ" $xopq,
+		"YTAS" $ytas,
+		"YTDE" $ytde,
+		"YTFI" $ytfi,
+		"YTLC" $ytlc,
+		"YTUC" $ytuc;
+}
