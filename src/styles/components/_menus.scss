@@ -3,17 +3,20 @@
 .menus {
 	outline: none;
 
-	min-width: 300px;
-
 	svg {
 		color: var(--c-on-surface-variant);
 	}
 
 	&__group {
-		padding: 2px 4px;
+		padding: 4px;
 		border-radius: 8px;
 		margin-block-end: 2px;
-		min-width: 138px;
+		min-width: 112px;
+		max-width: 280px;
+
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
 
 		&:first-child {
 			border-top-left-radius: 16px !important;
@@ -25,18 +28,77 @@
 		}
 	}
 
+	&__separator {
+		margin-block: 2px;
+		margin-inline: 12px;
+	}
+
+	&__label {
+		height: 32px;
+		line-height: f.rem(20);
+		font-size: f.rem(14);
+		font-weight: 900;
+		display: flex;
+		align-items: center;
+		padding-inline: 12px;
+	}
+
 	&__item {
 		display: flex;
 		gap: 8px;
 		align-items: center;
 		outline: none;
 
+		position: relative;
+
 		height: 48px;
 		border-radius: 4px;
 
-		line-height: f.rem(20);
-		font-size: f.rem(14);
-		font-weight: 500;
+		&::before {
+			content: "";
+			position: absolute;
+
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			border-radius: 4px;
+			pointer-events: none;
+		}
+
+		&[data-selected] {
+			border-radius: 12px;
+			&::before {
+				border-radius: 12px;
+			}
+		}
+
+		&__label {
+			h4 {
+				line-height: f.rem(20);
+				font-size: f.rem(14);
+				font-weight: 500;
+			}
+			p {
+				line-height: f.rem(16);
+				font-size: f.rem(12);
+				font-weight: 400;
+			}
+		}
+		& .submenu-caret,
+		&__shortcut {
+			margin-left: auto;
+			padding-left: 12px;
+
+			line-height: f.rem(20);
+			font-size: f.rem(14);
+			font-weight: 500;
+		}
+
+		& .submenu-caret {
+			width: 32px;
+		}
 
 		cursor: pointer;
 		&:disabled {
@@ -50,8 +112,9 @@
 			width: 20px;
 		}
 
-		&__shortcut {
-			margin-left: auto;
+		.not-selected {
+			display: block;
+			width: 20px;
 		}
 	}
 
@@ -62,6 +125,42 @@
 		.menus__group {
 			background: var(--c-surface-container-low);
 			color: var(--c-on-surface);
+		}
+
+		.menus__separator {
+			border-top: 2px solid var(--c-outline);
+		}
+
+		.menus__item {
+			&[data-hovered]::before {
+				background: rgba(from var(--c-on-surface) r g b / 0.08);
+			}
+
+			&__label p,
+			& svg,
+			&__shortcut {
+				color: var(--c-on-surface-variant);
+			}
+
+			&[data-selected] {
+				background: var(--c-tertiary-container);
+				color: var(--c-on-tertiary-container);
+
+				svg {
+					color: var(--c-on-tertiary-container);
+				}
+			}
+
+			&[data-variant="destructive"] {
+				background: var(--c-error);
+				color: var(--c-on-error);
+				border-radius: 12px;
+				.menus__item__label p,
+				& svg,
+				.menus__item__shortcut {
+					color: rgba(from var(--c-on-error) r g b / 0.75);
+				}
+			}
 		}
 	}
 	&[data-color="vibrant"] {
