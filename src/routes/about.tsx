@@ -1,9 +1,12 @@
-import { ArrowDownIcon } from "#/assets/icons/arrow-down";
-import { SunIcon } from "#/assets/icons/sun";
 import { createFileRoute } from "@tanstack/react-router";
 
 import { SplitButton, SplitButtonLeading, SplitButtonTrailing } from "~/composables/button/split";
-import { Menu, MenuContent, MenuGroup, MenuItem } from "~/composables/menus";
+import { Menu, MenuContent, MenuGroup, MenuItem, MenuItemShortcut } from "~/composables/menus";
+
+import SunIcon from "@material-symbols/svg-600/rounded/light_mode-fill.svg?react";
+import ArrowDownIcon from "@material-symbols/svg-600/rounded/keyboard_arrow_down-fill.svg?react";
+import BookmarkStarIcon from "@material-symbols/svg-600/rounded/bookmark_star-fill.svg?react";
+import ArrowRightIcon from "@material-symbols/svg-600/rounded/arrow_right-fill.svg?react";
 
 export const Route = createFileRoute("/about")({
 	component: RouteComponent
@@ -21,91 +24,7 @@ function RouteComponent() {
 				gap: "2rem"
 			}}
 		>
-			<SplitButton size="xs">
-				<SplitButtonLeading
-					// oxlint-disable-next-line react-perf/jsx-no-new-function-as-prop
-					onClick={() => {
-						console.log("Split Button: Leading button Clicked");
-					}}
-				>
-					<ArrowDownIcon />
-					Label
-				</SplitButtonLeading>
-				<Menu>
-					<SplitButtonTrailing>
-						<ArrowDownIcon />
-					</SplitButtonTrailing>
-					<MenuContent>
-						<MenuGroup>
-							<MenuItem>Sample</MenuItem>
-						</MenuGroup>
-					</MenuContent>
-				</Menu>
-			</SplitButton>
-			<SplitButton size="sm">
-				<SplitButtonLeading
-					// oxlint-disable-next-line react-perf/jsx-no-new-function-as-prop
-					onClick={() => {
-						console.log("Split Button: Leading button Clicked");
-					}}
-				>
-					<ArrowDownIcon />
-					Label
-				</SplitButtonLeading>
-				<Menu>
-					<SplitButtonTrailing>
-						<ArrowDownIcon />
-					</SplitButtonTrailing>
-					<MenuContent>
-						<MenuGroup>
-							<MenuItem>Sample</MenuItem>
-						</MenuGroup>
-					</MenuContent>
-				</Menu>
-			</SplitButton>
-			<SplitButton size="md">
-				<SplitButtonLeading
-					// oxlint-disable-next-line react-perf/jsx-no-new-function-as-prop
-					onClick={() => {
-						console.log("Split Button: Leading button Clicked");
-					}}
-				>
-					<ArrowDownIcon />
-					Label
-				</SplitButtonLeading>
-				<Menu>
-					<SplitButtonTrailing>
-						<ArrowDownIcon />
-					</SplitButtonTrailing>
-					<MenuContent>
-						<MenuGroup>
-							<MenuItem>Sample</MenuItem>
-						</MenuGroup>
-					</MenuContent>
-				</Menu>
-			</SplitButton>
-			<SplitButton size="lg">
-				<SplitButtonLeading
-					// oxlint-disable-next-line react-perf/jsx-no-new-function-as-prop
-					onClick={() => {
-						console.log("Split Button: Leading button Clicked");
-					}}
-				>
-					<ArrowDownIcon />
-					Label
-				</SplitButtonLeading>
-				<Menu>
-					<SplitButtonTrailing>
-						<ArrowDownIcon />
-					</SplitButtonTrailing>
-					<MenuContent>
-						<MenuGroup>
-							<MenuItem>Sample</MenuItem>
-						</MenuGroup>
-					</MenuContent>
-				</Menu>
-			</SplitButton>
-			<SplitButton size="xl">
+			<SplitButton>
 				<SplitButtonLeading
 					// oxlint-disable-next-line react-perf/jsx-no-new-function-as-prop
 					onClick={() => {
@@ -119,9 +38,33 @@ function RouteComponent() {
 					<SplitButtonTrailing>
 						<ArrowDownIcon />
 					</SplitButtonTrailing>
-					<MenuContent>
+					<MenuContent color="standard">
 						<MenuGroup>
-							<MenuItem>Sample</MenuItem>
+							<MenuItem>
+								<BookmarkStarIcon />
+								Sample
+								<MenuItemShortcut>
+									<ArrowRightIcon />
+								</MenuItemShortcut>
+							</MenuItem>
+						</MenuGroup>
+						<MenuGroup
+							selectionMode="multiple"
+							// oxlint-disable-next-line react-perf/jsx-no-new-array-as-prop
+							defaultSelectedKeys={["sample-1"]}
+						>
+							<MenuItem id={"sample-1"}>
+								<BookmarkStarIcon />
+								Sample 1
+							</MenuItem>
+							<MenuItem id={"sample-2"}>
+								<BookmarkStarIcon />
+								Sample 2
+							</MenuItem>
+							<MenuItem id={"sample-3"}>
+								<BookmarkStarIcon />
+								Sample 3
+							</MenuItem>
 						</MenuGroup>
 					</MenuContent>
 				</Menu>

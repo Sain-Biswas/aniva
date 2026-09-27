@@ -80,12 +80,11 @@
 		}
 	}
 
-	.leading {
-	}
-
 	.trailing {
+		transition: border-radius 200ms ease-in-out;
+
 		svg {
-			transition: transform 0.3s ease-in-out;
+			transition: transform 200ms ease-in-out;
 		}
 
 		&[aria-expanded="true"] {

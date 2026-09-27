@@ -56,3 +56,7 @@ body {
 :where(ul, ol)[role="list"] {
 	list-style: none;
 }
+
+svg {
+	fill: currentColor !important;
+}

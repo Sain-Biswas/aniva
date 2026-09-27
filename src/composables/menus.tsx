@@ -1,16 +1,19 @@
 import type { ComponentProps, ReactNode } from "react";
-import type { MenuItemProps, MenuSectionProps } from "react-aria-components/Menu";
-import {
-	MenuItem as MenuItemPrimitive,
-	Menu as MenuPrimitive,
-	MenuSection,
-	MenuTrigger as MenuTriggerPrimitive
+import type {
+	MenuItemProps as AriaMenuItemProps,
+	MenuSectionProps as AriaMenuSectionProps
 } from "react-aria-components/Menu";
-import { Popover } from "react-aria-components/Popover";
+import {
+	Menu as AriaMenu,
+	MenuItem as AriaMenuItem,
+	MenuSection as AriaMenuSection,
+	MenuTrigger as AriaMenuTrigger
+} from "react-aria-components/Menu";
+import { Popover as AriaPopover } from "react-aria-components/Popover";
 
-export function Menu(props: ComponentProps<typeof MenuTriggerPrimitive>) {
+export function Menu(props: ComponentProps<typeof AriaMenuTrigger>) {
 	return (
-		<MenuTriggerPrimitive
+		<AriaMenuTrigger
 			{...props}
 			data-slot="menu-trigger"
 		/>
@@ -19,43 +22,46 @@ export function Menu(props: ComponentProps<typeof MenuTriggerPrimitive>) {
 
 export function MenuContent({
 	"data-slot": dataSlot = "menu-content",
-	placement = "bottom end",
+	placement = "bottom left",
 	offset = 4,
 	crossOffset = 0,
 	className,
 	children,
+	color = "standard",
 	...props
-}: Omit<ComponentProps<typeof MenuPrimitive<object>>, "children" | "className"> &
-	Pick<ComponentProps<typeof Popover>, "placement" | "offset" | "crossOffset"> & {
+}: Omit<ComponentProps<typeof AriaMenu<object>>, "children" | "className"> &
+	Pick<ComponentProps<typeof AriaPopover>, "placement" | "offset" | "crossOffset"> & {
 		"data-slot"?: string;
 		className?: string;
 		children?: ReactNode;
+		color?: "standard" | "vibrant";
 	}) {
 	return (
-		<Popover
+		<AriaPopover
 			data-slot={dataSlot}
 			placement={placement}
 			offset={offset}
+			data-color={color}
 			crossOffset={crossOffset}
-			className={`menu__popover ${className}`}
+			className={`menus ${className}`}
 		>
-			<MenuPrimitive
-				className={`menu__primitive`}
+			<AriaMenu
+				className={`menus__primitive`}
 				{...props}
 			>
 				{children}
-			</MenuPrimitive>
-		</Popover>
+			</AriaMenu>
+		</AriaPopover>
 	);
 }
 
 export function MenuGroup({
 	className,
 	...props
-}: Omit<MenuSectionProps<object>, "children"> & { children?: ReactNode }) {
+}: Omit<AriaMenuSectionProps<object>, "children"> & { children?: ReactNode }) {
 	return (
-		<MenuSection
-			className={`menu__group ${className}`}
+		<AriaMenuSection
+			className={`menus__group ${className}`}
 			data-slot="menu-group"
 			{...props}
 		/>
@@ -67,20 +73,30 @@ export function MenuItem({
 	inset,
 	variant = "default",
 	...props
-}: MenuItemProps & { inset?: boolean; variant?: "default" | "destructive" }) {
+}: AriaMenuItemProps & { inset?: boolean; variant?: "default" | "destructive" }) {
 	return (
-		<MenuItemPrimitive
+		<AriaMenuItem
 			data-slot="menu-item"
 			data-inset={inset}
 			data-variant={variant}
-			className={`menu__item ${className?.toString()}`}
+			className={`menus__item ${className?.toString()}`}
+			{...props}
+		/>
+	);
+}
+
+export function MenuItemShortcut({ className, ...props }: React.ComponentProps<"span">) {
+	return (
+		<span
+			data-slot="menu-item-shortcut"
+			className={`menus__item__shortcut ${className ?? ""}`}
 			{...props}
 		/>
 	);
 }
 
 /**
- * Menu
+ * Menu-
  *      External Trigger
  *      MenuContent
  *          MenuGroup
