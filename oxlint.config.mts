@@ -17,7 +17,8 @@ export default defineConfig({
 		"react/react-in-jsx-scope": "off",
 
 		/* Typescript rules updates */
-		"typescript/prefer-readonly-parameter-types": "off"
+		"typescript/prefer-readonly-parameter-types": "off",
+		"max-lines-per-function": "off"
 	},
 
 	options: {
