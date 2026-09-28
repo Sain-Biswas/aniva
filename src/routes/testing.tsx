@@ -36,7 +36,10 @@ function RouteComponent() {
 				<EditIcon />
 				Label
 			</Button>
-			<Button size="xl">
+			<Button
+				size="xl"
+				color="tonal"
+			>
 				<EditIcon />
 				Label
 			</Button>

@@ -8,7 +8,10 @@
 
 	position: relative;
 
-	transition: all 350ms cubic-bezier(0.27, 1.06, 0.18, 1);
+	transition:
+		background-color 350ms cubic-bezier(0.27, 1.06, 0.18, 1),
+		color 350ms cubic-bezier(0.27, 1.06, 0.18, 1),
+		border-radius 350ms cubic-bezier(0.27, 1.06, 0.18, 1);
 
 	&::before {
 		content: "";
@@ -28,6 +31,39 @@
 }
 
 .button {
+	&[data-color="tonal"] {
+		background: var(--c-secondary-container);
+		color: var(--c-on-secondary-container);
+		svg {
+			fill: var(--c-on-secondary-container);
+		}
+
+		&[data-disabled] {
+			background: rgba(from var(--c-on-surface) r g b / 0.1);
+			color: rgba(from var(--c-on-surface) r g b / 0.38);
+			svg {
+				fill: rgba(from var(--c-on-surface) r g b / 0.38);
+			}
+		}
+
+		&:not(:disabled) {
+			&[data-hovered] {
+				&::before {
+					background: rgba(from var(--c-on-secondary-container) r g b / 0.08);
+				}
+			}
+			&[data-focus-visible] {
+				outline: 3px solid var(--c-outline);
+				outline-offset: 3px;
+			}
+			&[data-focus-visible],
+			&[data-pressed] {
+				&::before {
+					background: rgba(from var(--c-on-secondary-container) r g b / 0.1);
+				}
+			}
+		}
+	}
 	&[data-color="filled"] {
 		background: var(--c-primary);
 		color: var(--c-on-primary);
