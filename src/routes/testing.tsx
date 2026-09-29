@@ -1,8 +1,7 @@
-import { Button } from "~/composables/button/buttons";
 import { createFileRoute } from "@tanstack/react-router";
 import type { CSSProperties } from "react";
 
-import EditIcon from "@material-symbols/svg-600/rounded/edit-fill.svg?react";
+import { Checkbox } from "#/composables/checkbox";
 
 export const Route = createFileRoute("/testing")({
 	component: RouteComponent
@@ -17,32 +16,29 @@ const mainStyles: CSSProperties = {
 function RouteComponent() {
 	return (
 		<main style={mainStyles}>
-			<Button size="xs">
-				<EditIcon />
-				Label
-			</Button>
-			<Button size="sm">
-				<EditIcon />
-				Label
-			</Button>
-			<Button
-				size="md"
+			<Checkbox />
+			<Checkbox isIndeterminate />
+			<Checkbox isSelected />
+
+			<Checkbox isInvalid />
+			<Checkbox
+				isInvalid
+				isIndeterminate
+			/>
+			<Checkbox
+				isSelected
+				isInvalid
+			/>
+
+			<Checkbox isDisabled />
+			<Checkbox
 				isDisabled
-			>
-				<EditIcon />
-				Label
-			</Button>
-			<Button size="lg">
-				<EditIcon />
-				Label
-			</Button>
-			<Button
-				size="xl"
-				color="tonal"
-			>
-				<EditIcon />
-				Label
-			</Button>
+				isIndeterminate
+			/>
+			<Checkbox
+				isDisabled
+				isSelected
+			/>
 		</main>
 	);
 }

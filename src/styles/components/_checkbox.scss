@@ -1,0 +1,93 @@
+.checkbox,
+.checkbox__container {
+	display: grid;
+	place-content: center;
+}
+
+.checkbox {
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+
+	&[data-disabled] {
+		cursor: not-allowed;
+	}
+}
+
+.checkbox__container {
+	width: 40px;
+	height: 40px;
+	cursor: inherit;
+	border-radius: 99px;
+
+	svg {
+		width: 18px;
+		border-radius: 2px;
+	}
+
+	&:not([data-selected], [data-indeterminate]) {
+		color: var(--c-on-surface-variant);
+
+		&[data-invalid] {
+			color: var(--c-error);
+		}
+	}
+
+	&[data-selected]:not([data-disabled]),
+	&[data-indeterminate]:not([data-disabled]) {
+		svg {
+			background: var(--c-primary);
+			color: var(--c-on-primary);
+		}
+
+		&[data-invalid] svg {
+			background: var(--c-error);
+			color: var(--c-on-error);
+		}
+	}
+
+	&[data-disabled] {
+		svg {
+			color: rgb(from var(--c-on-surface) r g b / 0.38);
+		}
+
+		&[data-selected],
+		&[data-indeterminate] {
+			svg {
+				background: rgb(from var(--c-on-surface) r g b / 0.38);
+				color: var(--c-surface);
+			}
+		}
+	}
+
+	&[data-hovered] {
+		background: rgb(from var(--c-on-surface) r g b / 0.08);
+
+		&[data-selected],
+		&[data-indeterminate] {
+			background: rgb(from var(--c-primary) r g b / 0.08);
+		}
+
+		&[data-invalid] {
+			background: rgb(from var(--c-error) r g b / 0.08);
+		}
+	}
+
+	&[data-focus-visible] {
+		outline: 3px solid var(--c-secondary);
+		outline-offset: 2px;
+	}
+
+	&[data-pressed] {
+		background: rgb(from var(--c-on-surface) r g b / 0.1);
+
+		&[data-selected],
+		&[data-indeterminate] {
+			background: rgb(from var(--c-primary) r g b / 0.1);
+		}
+
+		&[data-invalid] {
+			background: rgb(from var(--c-error) r g b / 0.1);
+		}
+	}
+}
