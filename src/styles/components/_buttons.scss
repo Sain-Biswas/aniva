@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "../util/functions" as f;
+@use "../util/elevations" as e;
 
 .button {
 	display: flex;
@@ -31,6 +32,39 @@
 }
 
 .button {
+	&[data-color="elevated"] {
+		background: var(--c-surface-container-low);
+		color: var(--c-primary);
+		@include e.m3-shadow(1);
+
+		&[data-disabled] {
+			background: rgba(from var(--c-on-surface) r g b / 0.1);
+			@include e.m3-shadow(0);
+			color: rgba(from var(--c-on-surface) r g b / 0.38);
+			svg {
+				fill: rgba(from var(--c-on-surface) r g b / 0.38);
+			}
+		}
+
+		&:not([data-disabled]) {
+			&[data-hovered] {
+				&::before {
+					background: rgba(from var(--c-primary) r g b / 0.08);
+				}
+			}
+
+			&[data-focus-visible] {
+				outline: 3px solid var(--c-outline);
+				outline-offset: 3px;
+			}
+			&[data-focus-visible],
+			&[data-pressed] {
+				&::before {
+					background: rgba(from var(--c-primary) r g b / 0.1);
+				}
+			}
+		}
+	}
 	&[data-color="tonal"] {
 		background: var(--c-secondary-container);
 		color: var(--c-on-secondary-container);
