@@ -1,0 +1,37 @@
+@use "sass:map";
+
+$m3-shadows: (
+	0: none,
+	1: (
+		0px 1px 3px 1px rgba(from var(--c-shadow) r g b / 0.15),
+		0px 1px 2px 0px rgba(from var(--c-shadow) r g b / 0.3)
+	),
+	2: (
+		0px 2px 6px 2px rgba(from var(--c-shadow) r g b / 0.15),
+		0px 1px 2px 0px rgba(from var(--c-shadow) r g b / 0.3)
+	),
+	3: (
+		0px 4px 8px 3px rgba(from var(--c-shadow) r g b / 0.15),
+		0px 1px 3px 0px rgba(from var(--c-shadow) r g b / 0.3)
+	),
+	4: (
+		0px 6px 10px 4px rgba(from var(--c-shadow) r g b / 0.15),
+		0px 2px 3px 0px rgba(from var(--c-shadow) r g b / 0.3)
+	),
+	5: (
+		0px 8px 12px 6px rgba(from var(--c-shadow) r g b / 0.15),
+		0px 4px 4px 0px rgba(from var(--c-shadow) r g b / 0.3)
+	)
+);
+
+$m3-shadow-transition: box-shadow 200ms cubic-bezier(0.2, 0, 0, 1);
+
+@mixin m3-shadow($level) {
+	$shadow: map.get($m3-shadows, $level);
+
+	@if $shadow == null {
+		@error "Invalid Material 3 shadow level: #{$level}. Choose a level from 0 to 5.";
+	}
+
+	box-shadow: $shadow;
+}
