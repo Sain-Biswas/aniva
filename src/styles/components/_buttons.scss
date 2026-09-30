@@ -6,6 +6,7 @@
 	display: flex;
 	align-items: center;
 	cursor: pointer;
+	background: transparent;
 
 	position: relative;
 
@@ -54,7 +55,7 @@
 			}
 
 			&[data-focus-visible] {
-				outline: 3px solid var(--c-outline);
+				outline: 2px solid var(--c-outline);
 				outline-offset: 3px;
 			}
 			&[data-focus-visible],
@@ -87,7 +88,7 @@
 				}
 			}
 			&[data-focus-visible] {
-				outline: 3px solid var(--c-outline);
+				outline: 2px solid var(--c-outline);
 				outline-offset: 3px;
 			}
 			&[data-focus-visible],
@@ -120,7 +121,7 @@
 				}
 			}
 			&[data-focus-visible] {
-				outline: 3px solid var(--c-outline);
+				outline: 2px solid var(--c-outline);
 				outline-offset: 3px;
 			}
 			&[data-focus-visible],
@@ -128,6 +129,31 @@
 				&::before {
 					background: rgba(from var(--c-on-primary) r g b / 0.1);
 				}
+			}
+		}
+	}
+
+	&[data-color="outlined"] {
+		border: 3px solid var(--c-outline-variant);
+		color: var(--c-on-surface-variant);
+
+		&[data-disabled] {
+			color: rgba(from var(--c-on-surface) r g b / 0.38);
+		}
+
+		&:not([data-disabled]) {
+			&[data-hovered] {
+				background: rgba(from var(--c-on-surface-variant) r g b / 0.08);
+			}
+
+			&[data-focus-visible] {
+				outline: 2px solid var(--c-outline);
+				outline-offset: 3px;
+			}
+
+			&[data-pressed],
+			&[data-focus-visible] {
+				background: rgba(from var(--c-on-surface-variant) r g b / 0.1);
 			}
 		}
 	}

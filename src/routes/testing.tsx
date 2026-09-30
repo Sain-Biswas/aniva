@@ -17,7 +17,10 @@ const mainStyles: CSSProperties = {
 function RouteComponent() {
 	return (
 		<main style={mainStyles}>
-			<Button color="elevated">
+			<Button
+				color="outlined"
+				size="xl"
+			>
 				<EditIcon />
 				Label
 			</Button>
