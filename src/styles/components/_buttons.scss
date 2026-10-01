@@ -5,7 +5,6 @@
 .button {
 	display: flex;
 	align-items: center;
-	cursor: pointer;
 	background: transparent;
 
 	position: relative;
@@ -23,10 +22,6 @@
 		border-radius: inherit;
 	}
 
-	&:disabled {
-		cursor: not-allowed;
-	}
-
 	&[data-shape="round"] {
 		border-radius: 999px;
 	}
@@ -38,15 +33,6 @@
 		color: var(--c-primary);
 		@include e.m3-shadow(1);
 
-		&[data-disabled] {
-			background: rgba(from var(--c-on-surface) r g b / 0.1);
-			@include e.m3-shadow(0);
-			color: rgba(from var(--c-on-surface) r g b / 0.38);
-			svg {
-				fill: rgba(from var(--c-on-surface) r g b / 0.38);
-			}
-		}
-
 		&:not([data-disabled]) {
 			&[data-hovered] {
 				&::before {
@@ -54,10 +40,6 @@
 				}
 			}
 
-			&[data-focus-visible] {
-				outline: 2px solid var(--c-outline);
-				outline-offset: 3px;
-			}
 			&[data-focus-visible],
 			&[data-pressed] {
 				&::before {
@@ -66,30 +48,16 @@
 			}
 		}
 	}
+
 	&[data-color="tonal"] {
 		background: var(--c-secondary-container);
 		color: var(--c-on-secondary-container);
-		svg {
-			fill: var(--c-on-secondary-container);
-		}
-
-		&[data-disabled] {
-			background: rgba(from var(--c-on-surface) r g b / 0.1);
-			color: rgba(from var(--c-on-surface) r g b / 0.38);
-			svg {
-				fill: rgba(from var(--c-on-surface) r g b / 0.38);
-			}
-		}
 
 		&:not(:disabled) {
 			&[data-hovered] {
 				&::before {
 					background: rgba(from var(--c-on-secondary-container) r g b / 0.08);
 				}
-			}
-			&[data-focus-visible] {
-				outline: 2px solid var(--c-outline);
-				outline-offset: 3px;
 			}
 			&[data-focus-visible],
 			&[data-pressed] {
@@ -99,30 +67,16 @@
 			}
 		}
 	}
+
 	&[data-color="filled"] {
 		background: var(--c-primary);
 		color: var(--c-on-primary);
-		svg {
-			fill: var(--c-on-primary);
-		}
-
-		&[data-disabled] {
-			background: rgba(from var(--c-on-surface) r g b / 0.1);
-			color: rgba(from var(--c-on-surface) r g b / 0.38);
-			svg {
-				fill: rgba(from var(--c-on-surface) r g b / 0.38);
-			}
-		}
 
 		&:not(:disabled) {
 			&[data-hovered] {
 				&::before {
 					background: rgba(from var(--c-on-primary) r g b / 0.08);
 				}
-			}
-			&[data-focus-visible] {
-				outline: 2px solid var(--c-outline);
-				outline-offset: 3px;
 			}
 			&[data-focus-visible],
 			&[data-pressed] {
@@ -134,11 +88,11 @@
 	}
 
 	&[data-color="outlined"] {
-		border: 3px solid var(--c-outline-variant);
+		border: 2px solid var(--c-outline-variant);
 		color: var(--c-on-surface-variant);
 
 		&[data-disabled] {
-			color: rgba(from var(--c-on-surface) r g b / 0.38);
+			background: transparent;
 		}
 
 		&:not([data-disabled]) {
@@ -146,16 +100,71 @@
 				background: rgba(from var(--c-on-surface-variant) r g b / 0.08);
 			}
 
-			&[data-focus-visible] {
-				outline: 2px solid var(--c-outline);
-				outline-offset: 3px;
-			}
-
 			&[data-pressed],
 			&[data-focus-visible] {
 				background: rgba(from var(--c-on-surface-variant) r g b / 0.1);
 			}
 		}
+	}
+
+	&[data-color="text"] {
+		color: var(--c-primary);
+
+		&:not([data-disabled]) {
+			&[data-hovered] {
+				&::before {
+					background: rgba(from var(--c-primary) r g b / 0.08);
+				}
+			}
+			&[data-focus-visible],
+			&[data-pressed] {
+				&::before {
+					background: rgba(from var(--c-primary) r g b / 0.1);
+				}
+			}
+		}
+	}
+}
+
+.button {
+	&[data-focus-visible] {
+		outline: 2px solid var(--c-outline);
+		outline-offset: 3px;
+	}
+
+	cursor: pointer;
+	&[data-disabled] {
+		cursor: not-allowed;
+		background: rgba(from var(--c-on-surface) r g b / 0.1);
+		@include e.m3-shadow(0);
+		color: rgba(from var(--c-on-surface) r g b / 0.38);
+		svg {
+			fill: rgba(from var(--c-on-surface) r g b / 0.38);
+		}
+	}
+
+	&__progress {
+		display: none;
+	}
+	&[data-pending] {
+		cursor: progress;
+		svg {
+			display: none;
+		}
+
+		.button__progress {
+			display: inline-block;
+			animation: spin 1s infinite linear;
+		}
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
 	}
 }
 
