@@ -1,0 +1,28 @@
+{
+  "name": "aniva",
+  "private": true,
+  "scripts": {
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
+
+    "dev" : "turbo run dev",
+    "check-types": "turbo run check-types"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.11.2",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.11.2",
+  "type": "module",
+  "devDependencies": {
+    "oxfmt": "^0.72.0",
+    "turbo": "^2.11.7",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "$schema": "node_modules/turbo/schema.json",
+
+    "ui":"tui",
+
+    "tasks": {
+        /* development */
+        "dev":{
+            "cache":false,
+            "persistent":true
+        },
+
+        /* check types */
+        "check-types": {
+            "dependsOn": ["^check-types"]
+        }
+    }
+}
