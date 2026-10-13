@@ -1,18 +1,33 @@
 {
-    "$schema": "node_modules/turbo/schema.json",
+	"$schema": "node_modules/turbo/schema.json",
 
-    "ui":"tui",
+	"ui": "tui",
 
-    "tasks": {
-        /* development */
-        "dev":{
-            "cache":false,
-            "persistent":true
-        },
+	"tasks": {
+		/* development */
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
 
-        /* check types */
-        "check-types": {
-            "dependsOn": ["^check-types"]
-        }
-    }
+		/* build */
+		"build": {
+			"dependsOn": ["^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"outputs": ["dist/**"]
+		},
+
+		/* linting */
+		"lint": {
+			"dependsOn": ["^lint"]
+		},
+		"lint:fix": {
+			"dependsOn": ["^lint:fix"]
+		},
+
+		/* check types */
+		"check-types": {
+			"dependsOn": ["^check-types"]
+		}
+	}
 }

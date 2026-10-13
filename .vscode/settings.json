@@ -1,5 +1,5 @@
 {
-    "cSpell.words": [
-        "Aniva"
-    ]
+	"editor.defaultFormatter": "oxc.oxc-vscode",
+
+	"cSpell.words": ["Aniva"]
 }
